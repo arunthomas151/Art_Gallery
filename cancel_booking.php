@@ -1,7 +1,7 @@
 <?php
 require "dbconfig.php";
 require "session.php";
-$sql="select * from booking where customer_id='$login_id' and status='booked'";
+$sql="select * from booking where buyer_id='$login_id' and status='booked'";
 $result=mysqli_query($con,$sql);
 
 
@@ -72,17 +72,11 @@ $result=mysqli_query($con,$sql);
 
 	<div class="logo_products">
 		<div class="container">
-		<div class="w3ls_logo_products_left1">
-				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>Order online or call us : (+0123) 234 567</li>
-					
-				</ul>
-			</div>
 			<div class="w3ls_logo_products_left">
-				<h1><a href="index.html">Indane Gas</a></h1>
+				<h1><a href="index.html">Art Gallery</a></h1>
 			</div>
-		
-			
+
+
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -104,10 +98,7 @@ $result=mysqli_query($con,$sql);
 	<div class="container">
 		<table id="customers">
 			 <tr>
-			    <th>Booking  Date</th>
 			    <th>Quantity</th> 
-			    <th>Distributor</th>
-			     <th>Type</th>
 			    <th>Amount</th>
 			     <th>Action</th>
 			 </tr>
@@ -118,10 +109,8 @@ $result=mysqli_query($con,$sql);
 			 	?>
 			 	<tr>
 			 	<form method="post">
-			 	 <td><?php echo $row->date;?></td>
+			 	 
 			     <td><?php echo $row->qty?></td> 
-			      <td><?php echo $row->distributor?></td> 
-			      <td><?php echo $row->type?></td>
 			     <td><?php echo $row->price?></td>
 			     <td><button type="submit"onclick="cancel('<?php echo $row->id?>');" class="btn btn-danger">Cancel</button></td>
 			 </form>

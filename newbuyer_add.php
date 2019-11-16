@@ -11,13 +11,13 @@ $dis=$_POST['district'];
 $state=$_POST['state'];
 $password=$_POST['password'];
 
-$sqlcheck="select * from customer where mobile='$mobile'";
+$sqlcheck="select * from buyer where mobile='$mobile'";
 $result=mysqli_query($con,$sqlcheck);
 $num=mysqli_num_rows($result);
 if($num==0)
 {
 
- $sql="insert into customer(name,address,mobile,dob,email,location,dis,state,password)values('$name','$address','$mobile','$dob','$email','$locality','$dis','$state','$password')";
+ $sql="insert into buyer(name,address,mobile,dob,email,location,dis,state,password)values('$name','$address','$mobile','$dob','$email','$locality','$dis','$state','$password')";
  if(mysqli_query($con,$sql))
 {
 	echo "Successful";
@@ -25,7 +25,7 @@ if($num==0)
 else
 {
 
-	echo "Try again";
+	echo "The Mobile Number Also Registred";
 }
 }
 

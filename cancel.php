@@ -3,7 +3,7 @@ require "session.php";
 require "dbconfig.php";
 $id=$_POST['id'];
 $date=date("Y/m/d");
-$sql="UPDATE booking set status='cancel' where id='$id' and customer_id='$login_id'";
+$sql="UPDATE booking set status='cancel' where id='$id' and buyer_id='$login_id'";
 if(mysqli_query($con,$sql))
 {
 	echo "Cancelled";

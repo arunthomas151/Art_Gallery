@@ -13,9 +13,8 @@
 	<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="user_home.php" class="act">Home</a></li>	
-			<li><a href="gasbooking.php">Gas Booking</a></li>
+			<li><a href="artbooking.php">Art Booking</a></li>
 			<li><a href="cancel_booking.php">Cancel Booking</a></li>
-			<li><a href="subsidy.php">Subsidy Information</a></li>
 			<li><a href="notification.php">Notification</a></li>
 			
 			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>

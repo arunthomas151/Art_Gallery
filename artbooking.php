@@ -1,18 +1,9 @@
 <?php
 require "session.php";
 require "dbconfig.php";
-$sqluser="select * from customer where id='$login_id'";
+$sqluser="select * from buyer where id='$login_id'";
 $result=mysqli_query($con,$sqluser);
 $row=mysqli_fetch_object($result);
-
-
-//distributor
-$sqldistributor="select * from distributor";
-$resultdis=mysqli_query($con,$sqldistributor);
-
-//gas
-$sqlgas="select * from gas";
-$resultgas=mysqli_query($con,$sqlgas);
 
 
 ?>
@@ -57,17 +48,11 @@ $resultgas=mysqli_query($con,$sqlgas);
 
 	<div class="logo_products">
 		<div class="container">
-		<div class="w3ls_logo_products_left1">
-				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>Order online or call us : (+0123) 234 567</li>
-					
-				</ul>
-			</div>
 			<div class="w3ls_logo_products_left">
-				<h1><a href="index.html">Indane Gas</a></h1>
+				<h1><a href="index.html">Art Gallery</a></h1>
 			</div>
-		
-			
+
+
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -83,7 +68,7 @@ $resultgas=mysqli_query($con,$sqlgas);
 <!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h3>Book Your cyllinder</h3>
+			<h3>Art Gallery</h3>
 		</div>
 	</div>
 	<div class="container">
@@ -111,41 +96,10 @@ $resultgas=mysqli_query($con,$sqlgas);
 		  </div>
 
 
-		   <div class="form-group row col-md-12">
-		    <label for="staticEmail" class="col-sm-2 col-form-label">Type of Gas</label>
-		    <div class="col-sm-8">
-		      <select class="form-control" name="type" id="type" onchange="gastype();">
-		      	<option>Select Type of Cyllinder</option>
-		      
-		      	<?php
-		      	while($rowgas=mysqli_fetch_object($resultgas))
-		      	{
-		      		?>  <option><?php echo $rowgas->type;?>  		</option><?php
-		      	}
-		      	?>
-		      </select>
-		    </div>
-		  </div>
-
 		    <div class="form-group row col-md-12">
 		    <label for="staticEmail" class="col-sm-2 col-form-label">Price</label>
 		    <div class="col-sm-8">
 		      <input type="number" class="form-control"  name="price" id="price" >
-		    </div>
-		  </div>
-
-		  <div class="form-group row col-md-12">
-		   <label for="staticEmail" class="col-sm-2 col-form-label">Select Distributors</label>
-		    <div class="col-sm-8">
-		      <select class="form-control" name="distributor" id="distributor" onchange="checkdisable()" >
-		      	<option>select distributor</option>
-		      	<?php
-		      	while($rowdis=mysqli_fetch_object($resultdis))
-		      	{
-		      		?>  <option><?php echo $rowdis->cname;?>  		</option><?php
-		      	}
-		      	?>
-		      </select>
 		    </div>
 		  </div>
 
@@ -166,7 +120,7 @@ $resultgas=mysqli_query($con,$sqlgas);
 		  <div class="form-group row col-md-12">
 		    <label for="inputPassword" class="col-sm-2 col-form-label"></label>
 		    <div class="col-sm-8">
-		      <input type="submit" class="btn btn-primary" value="Book Your Cyllinder" name="book" disabled>
+		      <input type="submit" class="btn btn-primary" value="Book Your Art" name="book" disabled>
 		    </div>
 		  </div>
 		</form>

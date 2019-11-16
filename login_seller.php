@@ -1,7 +1,5 @@
 <?php
-require "session.php";
-require "dbconfig.php";
-
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -33,11 +31,18 @@ require "dbconfig.php";
 			<div class="w3l_offers">
 
 			</div>
+			<div class="agile-login">
+				<ul>
+					<li><a href="login_buyer.php">Buyer Login</a></li>
+					<li><a href="login_seller.php">Seller Login</a></li>
 
+				</ul>
+			</div>
 
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+
 	<div class="logo_products">
 		<div class="container">
 			<div class="w3ls_logo_products_left">
@@ -52,7 +57,7 @@ require "dbconfig.php";
 	<!-- navigation -->
 	<div class="navigation-agileits">
 		<div class="container">
-			<?php require "user_menu.php"; ?>
+			<?php require "common_menu.php"; ?>
 		</div>
 	</div>
 
@@ -60,41 +65,38 @@ require "dbconfig.php";
 	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h3>change password</h3>
+			<h3>Login Distributors Account</h3>
 		</div>
 	</div>
 	<div class="container">
-		<form id="booking" method="post">
-
-			<div class="form-group row col-md-12">
-				<label for="staticEmail" class="col-sm-2 col-form-label">Old password</label>
+		<form method="post">
+			<div class="form-group row col-md-7">
+				<label for="staticEmail" class="col-sm-4 col-form-label">Mobile No</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="old" required>
+					<input type="text" class="form-control" name="mobile" required>
+				</div>
+			</div>
+			<div class="form-group row col-md-7">
+				<label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" name="password">
 				</div>
 			</div>
 
-			<div class="form-group row col-md-12">
-				<label for="staticEmail" class="col-sm-2 col-form-label">New password</label>
+			<div class="form-group row col-md-7">
+				<label for="inputPassword" class="col-sm-4 col-form-label"></label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="new" required>
-				</div>
-			</div>
-
-
-
-			<div class="form-group row col-md-12">
-				<label for="inputPassword" class="col-sm-2 col-form-label"></label>
-				<div class="col-sm-8">
-					<input type="submit" class="btn btn-primary" value="change" name="change">
+					<input type="submit" class="btn btn-primary" value="Submit" name="login">
 				</div>
 			</div>
 		</form>
 
 	</div>
 	<!-- //register -->
+	<!-- //footer -->
 
 
-	<?php require "footer.php"; ?>
+
 
 
 	<!-- //footer -->
@@ -111,4 +113,21 @@ require "dbconfig.php";
 </body>
 
 </html>
-<?php include "password.php"; ?>
+<?php
+if (isset($_POST['login'])) {
+	require "dbconfig.php";
+	$mobile = $_POST['mobile'];
+	$password = $_POST['password'];
+	$sql = "select * from distributor where mobile='$mobile' and password='$password'";
+	$result = mysqli_query($con, $sql);
+	$num = mysqli_num_rows($result);
+	if ($num == 1) {
+		$row = mysqli_fetch_object($result);
+		//echo "<script>alert('$row->name');</script>";
+		$_SESSION['login_id'] = $row->id;
+		$_SESSION['cname'] = $row->cname;
+		echo '<script type="text/javascript">window.location="distributor/view_orders.php"</script>';
+	} else {
+		echo "<script>alert('Invalid login');</script>";
+	}
+}

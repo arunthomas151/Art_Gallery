@@ -36,7 +36,6 @@ $result=mysqli_query($con,$sql);
 				<ul>
 					<li><a href="login_admin.php">Admin Login</a></li>
 					<li><a href="login_user.php">Consumer Login</a></li>
-					
 					<li><a href="login_distributor.php">Distributors Login</a></li>
 					
 				</ul>
@@ -67,18 +66,25 @@ $result=mysqli_query($con,$sql);
 	<div class="navigation-agileits">
 		<div class="container">
 			<?php require "common_menu.php";?>
-		</div>
+			</div>
 		</div>
 		
 <!-- //navigation -->
 <!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h3>New Connection</h3>
+			<h3>New Distributor</h3>
 		</div>
 	</div>
 	<div class="container">
-		<form id="consumer">
+		<form id="distributor">
+
+			<div class="form-group row col-md-7">
+		    <label for="staticEmail" class="col-sm-4 col-form-label">Company Name</label>
+		    <div class="col-sm-8">
+		      <input type="text" class="form-control" id="cname" name="cname" >
+		    </div>
+		  </div>
 		  <div class="form-group row col-md-7">
 		    <label for="staticEmail" class="col-sm-4 col-form-label">Name</label>
 		    <div class="col-sm-8">
@@ -100,24 +106,15 @@ $result=mysqli_query($con,$sql);
 		    </div>
 		  </div>
 
-		   <div class="form-group row col-md-7">
-		    <label for="inputPassword" class="col-sm-4 col-form-label">Dob</label>
-		    <div class="col-sm-8">
-		      <input type="date" class="form-control" id="date" name="date">
-		    </div>
-		  </div>
-
-		  <div class="form-group row col-md-7">
+		    <div class="form-group row col-md-7">
 		    <label for="inputPassword" class="col-sm-4 col-form-label">Email</label>
 		    <div class="col-sm-8">
-		      <input type="email" class="form-control" id="email" name="email">
+		      <input type="text" class="form-control" id="email" name="email">
 		    </div>
 		  </div>
 
-
-
 		   <div class="form-group row col-md-7">
-		    <label for="inputPassword" class="col-sm-4 col-form-label">Location</label>
+		    <label for="inputPassword" class="col-sm-4 col-form-label">Locality</label>
 		    <div class="col-sm-8">
 		      <select class="form-control" onchange="getstate()" id="location" name="location">
 		      	<option>select Location</option>
@@ -131,12 +128,15 @@ $result=mysqli_query($con,$sql);
 		    </div>
 		  </div>
 
+		
 		    <div class="form-group row col-md-7">
 		    <label for="inputPassword" class="col-sm-4 col-form-label">District</label>
 		    <div class="col-sm-8">
 		      <input type="text" class="form-control" id="district" name="district">
 		    </div>
 		  </div>
+
+
 
 		   <div class="form-group row col-md-7">
 		    <label for="inputPassword" class="col-sm-4 col-form-label">State</label>
@@ -152,12 +152,7 @@ $result=mysqli_query($con,$sql);
 		      <input type="text" class="form-control" id="password" name="password">
 		    </div>
 		  </div>
-		  <div class="form-group row col-md-7">
-		    <label for="inputPassword" class="col-sm-4 col-form-label">Confirm Password</label>
-		    <div class="col-sm-8">
-		      <input type="text" class="form-control" id="cpassword" name="cpassword">
-		    </div>
-		  </div>
+		 
 
 
 
@@ -268,59 +263,46 @@ $result=mysqli_query($con,$sql);
 	
 	function save()
 	{
-
-	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-	var name=$("#name").val();
-	var address=$("#address").val();
-	var number=$("#number").val();
-    var date=$("#date").val();
-    var email=$("#email").val();
-    var location=$("#location").val();
-    var district=$("#district").val();
-    var state=$("#state").val();
-    var password=$("#password").val();
-    var cpassword=$("#cpassword").val();
-
-    //alert(name);
-    //alert(address);
-    // alert(number);
-    //alert(date);
-    //alert(email);
-    //alert(location);
-    //alert(district);
-    //alert(state);
-    //alert(password);
-    //alert(cpassword);
-
-    if(name=="" || address=="" || date==""|| location==""|| district==""|| state==""|| password==""|| cpassword=="")
-    {
-     alert("All fields is mandatoey");
-     }
-    else if(number.length<10)
-    {
-     alert("invalid mobile number");
-    }
-    else if(password!=cpassword)
-    {
-    alert("confirm password is incorrect");	
-    }
-     else if(!emailReg.test(email)) 
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		var cname=$("#cname").val();
+		var name=$("#name").val();
+	    var address=$("#address").val();
+		var number=$("#number").val();
+	    var email=$("#email").val();
+	    var location=$("#location").val();
+	    var district=$("#district").val();
+	    var state=$("#state").val();
+	    var password=$("#password").val();
+    
+    if(cname==""||name=="" || address=="" ||location==""|| district==""|| state==""|| password=="")
+    	{
+    	 alert("All fields is mandatoey");
+     	}
+	    else if(number.length!=10)
+	    {
+	     alert("invalid mobile number");
+	    }
+	    else if(!emailReg.test(email)) 
 		 {
 		           alert("invalid email");
 		 }
-    else
-    {
-     $.ajax({
+
+	    else
+	    {
+	    	
+	    	//alert($('#distributor').serialize());
+	    	$.ajax({
 			type:"POST",
-			url:"newconnection_add.php",
-			data:$('#consumer').serialize(),
+			url:"distributor_add.php",
+			data:$('#distributor').serialize(),
 			success:function(data){
 				alert(data);
-				$('#consumer')[0].reset();
+				$('#distributor')[0].reset();
 			}
 		});
-    }
-	
+
+	    }
+ 
 	}
 
 	function getstate()
@@ -338,4 +320,15 @@ $result=mysqli_query($con,$sql);
 			}
 		});
 	}
+
+
+	function validateEmail(sEmail) {
+var filter = /^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
+if (filter.test(sEmail)) {
+return true;
+}
+else {
+return false;
+}
+}
 </script>

@@ -1,9 +1,13 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Gas booking System</title>
-
+	<title></title>
+	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -17,8 +21,6 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<!-- //js -->
 
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
 
 </head>
 
@@ -31,10 +33,8 @@
 			</div>
 			<div class="agile-login">
 				<ul>
-					<li><a href="login_admin.php">Admin Login</a></li>
-					<li><a href="login_user.php">Consumer Login</a></li>
-
-					<li><a href="login_distributor.php">Distributors Login</a></li>
+					<li><a href="login_buyer.php">Buyer Login</a></li>
+					<li><a href="login_seller.php">Seller Login</a></li>
 
 				</ul>
 			</div>
@@ -42,10 +42,8 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-
 	<div class="logo_products">
 		<div class="container">
-
 			<div class="w3ls_logo_products_left">
 				<h1><a href="index.html">Art Gallery</a></h1>
 			</div>
@@ -63,31 +61,38 @@
 	</div>
 
 	<!-- //navigation -->
-	<!-- main-slider -->
-	<ul id="demo1">
-		<li>
-			<img src="images/11.jpg" alt="" />
-			<!--Slider Description example-->
-			<div class="slide-desc">
-
+	<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<h3>Login User Account</h3>
+		</div>
+	</div>
+	<div class="container">
+		<form method="post">
+			<div class="form-group row col-md-7">
+				<label for="staticEmail" class="col-sm-4 col-form-label">Mobile No</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="mobile" required>
+				</div>
 			</div>
-		</li>
-		<li>
-			<img src="images/22.jpg" alt="" />
-			<div class="slide-desc">
-
+			<div class="form-group row col-md-7">
+				<label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" name="password">
+				</div>
 			</div>
-		</li>
 
-		<li>
-			<img src="images/44.jpg" alt="" />
-			<div class="slide-desc">
-
+			<div class="form-group row col-md-7">
+				<label for="inputPassword" class="col-sm-4 col-form-label"></label>
+				<div class="col-sm-8">
+					<input type="submit" class="btn btn-primary" value="Submit" name="login">
+				</div>
 			</div>
-		</li>
-	</ul>
+		</form>
 
-
+	</div>
+	<!-- //register -->
+	<!-- //footer -->
 	<div class="footer">
 		<div class="container">
 			<div class="w3_footer_grids">
@@ -120,6 +125,7 @@
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="beverages.html">Beverages</a></li>
 					</ul>
 				</div>
+
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info">
@@ -128,19 +134,19 @@
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="login.html">Login</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="registered.html">Create Account</a></li>
 					</ul>
+
+
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 
-		<div class="footer-copy">
 
-			<div class="container">
-				<p>© 2017 Super Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-			</div>
-		</div>
 
 	</div>
+
+
+
 	<div class="footer-botm">
 		<div class="container">
 			<div class="w3layouts-foot">
@@ -161,58 +167,42 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<!-- top-header and slider -->
-	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
 
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
+
+
 
 		});
 	</script>
 	<!-- //here ends scrolling icon -->
 	<script src="js/minicart.min.js"></script>
-	<script>
-		// Mini Cart
-		paypal.minicart.render({
-			action: '#'
-		});
 
-		if (~window.location.search.indexOf('reset=true')) {
-			paypal.minicart.reset();
-		}
-	</script>
-	<!-- main slider-banner -->
 	<script src="js/skdslider.min.js"></script>
 	<link href="css/skdslider.css" rel="stylesheet">
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery('#demo1').skdslider({
-				'delay': 5000,
-				'animationSpeed': 2000,
-				'showNextPrev': true,
-				'showPlayButton': true,
-				'autoSlide': true,
-				'animationType': 'fading'
-			});
 
-			jQuery('#responsive').change(function() {
-				$('#responsive_wrapper').width(jQuery(this).val());
-			});
 
-		});
-	</script>
-	<!-- //main slider-banner -->
 </body>
 
 </html>
+
+<?php
+if (isset($_POST['login'])) {
+	require "dbconfig.php";
+	$mobile = $_POST['mobile'];
+	$password = $_POST['password'];
+	$sql = "select * from buyer where mobile='$mobile' and password='$password'";
+	$result = mysqli_query($con, $sql);
+	$num = mysqli_num_rows($result);
+	if ($num == 1) {
+		$row = mysqli_fetch_object($result);
+		//echo "<script>alert('$row->name');</script>";
+		$_SESSION['login_id'] = $row->id;
+		echo '<script type="text/javascript">window.location="user_home.php"</script>';
+	} else {
+		echo "<script>alert('Invalid login');</script>";
+	}
+}
+
+
+?>
