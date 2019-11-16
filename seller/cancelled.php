@@ -4,7 +4,7 @@ require "session.php";
 $sql="select * from menu order by orderid asc";
 $result=mysqli_query($con,$sql);
 
-$sqlorder="select * from booking where distributor='$cname' and status='cancel'";
+$sqlorder="select * from booking where seller='$cname' and status='cancel'";
 $resultorder=mysqli_query($con,$sqlorder);
 
 
@@ -18,7 +18,7 @@ $resultorder=mysqli_query($con,$sqlorder);
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>welcome </title>
+    <title>Art Gallery </title>
 	
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -71,7 +71,7 @@ $resultorder=mysqli_query($con,$sqlorder);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" >Distributor</a> 
+                <a class="navbar-brand" >Seller</a> 
             </div>
   <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;"> 
     Last access : 
@@ -127,7 +127,7 @@ $resultorder=mysqli_query($con,$sqlorder);
         <tr>
         <form method="post">
          <td><?php echo $row1->date;?></td>
-           <td><?php echo $row1->customer_id?></td> 
+           <td><?php echo $row1->buyer_id?></td> 
             <td><?php echo $row1->type?></td> 
             <td><?php echo $row1->price?></td>
           

@@ -13,7 +13,7 @@
 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 <ul class="nav navbar-nav">
 <li class="active"><a href="index.php" class="act">Home</a></li>					
-<li><a href="login_user.php">Art Booking</a></li>
+<li><a href="artdetails.php">Art Booking</a></li>
 <li><a href="new_buyer.php">New Buyer</a></li>
 <li><a href="new_seller.php">New Seller</a></li>
 

@@ -8,7 +8,7 @@ $result = mysqli_query($con, $sql);
 <html>
 
 <head>
-	<title></title>
+	<title>Art Gallery</title>
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -117,8 +117,8 @@ $result = mysqli_query($con, $sql);
 						<?php
 						while ($row = mysqli_fetch_object($result)) {
 							?> <option><?php echo $row->loc; ?> </option><?php
-							}
-							?>
+																			}
+																			?>
 					</select>
 				</div>
 			</div>

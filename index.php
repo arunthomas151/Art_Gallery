@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Gas booking System</title>
+	<title>Art Gallery</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,10 +31,8 @@
 			</div>
 			<div class="agile-login">
 				<ul>
-					<li><a href="login_admin.php">Admin Login</a></li>
-					<li><a href="login_user.php">Consumer Login</a></li>
-
-					<li><a href="login_distributor.php">Distributors Login</a></li>
+					<li><a href="login_buyer.php">Buyer Login</a></li>
+					<li><a href="login_seller.php">Seller Login</a></li>
 
 				</ul>
 			</div>

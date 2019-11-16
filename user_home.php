@@ -5,7 +5,7 @@ require "session.php";
 <html>
 
 <head>
-	<title>Gas booking System</title>
+	<title>Art Gallery</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

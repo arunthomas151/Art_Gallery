@@ -64,7 +64,7 @@ session_start();
 	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h3>Login User Account</h3>
+			<h3>Login Buyer Account</h3>
 		</div>
 	</div>
 	<div class="container">

@@ -10,13 +10,13 @@ $dis=$_POST['district'];
 $state=$_POST['state'];
 $password=$_POST['password'];
 
- $sqlcheck="select * from distributor where mobile='$mobile' and cname='$cname'";
+ $sqlcheck="select * from seller where mobile='$mobile' and cname='$cname'";
  $checkresult=mysqli_query($con,$sqlcheck);
  $num=mysqli_num_rows($checkresult);
 
  if($num==0)
  {
- 	$sql="insert into distributor(cname,name,address,mobile,email,locality,dis,state,password)values('$cname','$name','$address','$mobile','$email','$locality','$dis','$state','$password')";
+ 	$sql="insert into seller(cname,name,address,mobile,email,locality,dis,state,password)values('$cname','$name','$address','$mobile','$email','$locality','$dis','$state','$password')";
 	if(mysqli_query($con,$sql))
 	{
 		echo "Successful";

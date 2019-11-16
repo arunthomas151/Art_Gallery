@@ -17,7 +17,7 @@ $result=mysqli_query($con,$sql);
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>welcome </title>
+    <title>Art Gallery </title>
 	
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -70,7 +70,7 @@ $result=mysqli_query($con,$sql);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" >Distributor</a> 
+                <a class="navbar-brand" >Seller</a> 
             </div>
   <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;"> 
     Last access : 
@@ -162,7 +162,7 @@ if(isset($_POST['change']))
 {
   $old=$_POST['old'];
   $new=$_POST['new'];
-  $sql="UPDATE distributor set password='$new' where id='$login_id'";
+  $sql="UPDATE seller set password='$new' where id='$login_id'";
   if(mysqli_query($con,$sql))
   {
     echo "<script>alert('updated')</script>";

@@ -65,7 +65,7 @@ session_start();
 	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h3>Login Distributors Account</h3>
+			<h3>Login Seller Account</h3>
 		</div>
 	</div>
 	<div class="container">
@@ -118,7 +118,7 @@ if (isset($_POST['login'])) {
 	require "dbconfig.php";
 	$mobile = $_POST['mobile'];
 	$password = $_POST['password'];
-	$sql = "select * from distributor where mobile='$mobile' and password='$password'";
+	$sql = "select * from seller where mobile='$mobile' and password='$password'";
 	$result = mysqli_query($con, $sql);
 	$num = mysqli_num_rows($result);
 	if ($num == 1) {
@@ -126,7 +126,7 @@ if (isset($_POST['login'])) {
 		//echo "<script>alert('$row->name');</script>";
 		$_SESSION['login_id'] = $row->id;
 		$_SESSION['cname'] = $row->cname;
-		echo '<script type="text/javascript">window.location="distributor/view_orders.php"</script>';
+		echo '<script type="text/javascript">window.location="seller/view_orders.php"</script>';
 	} else {
 		echo "<script>alert('Invalid login');</script>";
 	}

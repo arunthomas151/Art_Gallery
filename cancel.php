@@ -7,7 +7,7 @@ $sql="UPDATE booking set status='cancel' where id='$id' and buyer_id='$login_id'
 if(mysqli_query($con,$sql))
 {
 	echo "Cancelled";
-	$msg="Your cyllinder is Cancelled on ".$date;
+	$msg="Your Art Booking is Cancelled on ".$date;
 $sqlnoti="insert into notification(login_id,date,msg)values('$login_id','$date','$msg')";
 mysqli_query($con,$sqlnoti);
 }

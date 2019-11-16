@@ -10,7 +10,7 @@ $result=mysqli_query($con,$sql);
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Art Gallery</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -98,8 +98,10 @@ $result=mysqli_query($con,$sql);
 	<div class="container">
 		<table id="customers">
 			 <tr>
-			    <th>Quantity</th> 
-			    <th>Amount</th>
+				<th>Product</th> 
+				<th>Order Date</th>
+				<th>Amount</th>
+				<th>Status</th>
 			     <th>Action</th>
 			 </tr>
 			 <?php
