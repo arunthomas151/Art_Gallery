@@ -1,8 +1,10 @@
 <?php
+require("session.php");
 require("dbconfig.php");
 $artname = $_POST['artname'];
 $specification = $_POST['specification'];
 $price = $_POST['price'];
+$stock = $_POST['stock'];
 
 
 if (isset($_FILES['image'])) {
@@ -25,7 +27,7 @@ if (isset($_FILES['image'])) {
     if (empty($errors) == true) {
         $path = "uploads/" . $file_name;
         move_uploaded_file($file_tmp, "uploads/" . $file_name);
-        $sql = "insert into art(artname,imagepath,specification,price)value('$artname','$path','$specification','$price')";
+        $sql = "insert into art(login_id,artname,imagepath,specification,price,stock)value('$login_id','$artname','$path','$specification','$price','$stock')";
         $result = mysqli_query($con, $sql);
         if ($result) {
             echo "Successfully Added";

@@ -1,8 +1,6 @@
 <?php
 require("dbconfig.php");
 
-
-
 $artid = $_POST['artid'];
 $sql = "select * from art where id='$artid'";
 $result = mysqli_query($con, $sql);
@@ -11,5 +9,6 @@ while ($row = mysqli_fetch_object($result)) {
     $data['artname'] = $row->artname;
     $data['specification'] = $row->specification;
     $data['price'] = $row->price;
+    $data['stock'] = $row->stock;
 }
 echo json_encode($data);

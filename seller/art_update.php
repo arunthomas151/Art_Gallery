@@ -4,6 +4,7 @@ $id = $_POST['artid'];
 $artname = $_POST['artname'];
 $specification = $_POST['specification'];
 $price = $_POST['price'];
+$stock = $_POST['stock'];
 
 
 if (isset($_FILES['image'])) {
@@ -37,7 +38,7 @@ if (isset($_FILES['image'])) {
         
     }
 }
-$sql = "update art set artname = '$artname' , specification = '$specification' ,price = '$price' where id = '$id'";
+$sql = "update art set artname = '$artname' , specification = '$specification' ,price = '$price' ,stock = '$stock' where id = '$id'";
 $result = mysqli_query($con, $sql);
 if ($result) {
     echo "Successfully Updated";

@@ -86,7 +86,7 @@ $result = mysqli_query($con, $sql);
                         <div class="form-group">
                             <label>Search Art</label>
                             <select class="form-control" onchange="search();" id="search1">
-                                <option>Search Art</option>
+                                <option selected disabled>Search Art</option>
                                 <?php
                                 while ($row1 = mysqli_fetch_object($resultart)) {
                                     ?>
@@ -124,8 +124,12 @@ $result = mysqli_query($con, $sql);
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Price</label>
-                                    <input type="text" class="form-control" data-error="Enter price" data-sc-type="text" id="price" name="price">
+                                    <label>Price For One</label>
+                                    <input type="text" class="form-control" data-error="Enter price for One" data-sc-type="text" id="price" name="price">
+                                </div>
+                                <div class="form-group">
+                                    <label>Stock</label>
+                                    <input type="text" class="form-control" data-error="Enter price" data-sc-type="text" id="stock" name="stock">
                                 </div>
                                 <button type="button" class="btn btn-warning" onclick="edit();">Save Changes</button>
                                 <button type="button" class="btn btn-danger" onclick="del();">Delete</button>
@@ -177,6 +181,7 @@ $result = mysqli_query($con, $sql);
                     $('#artname').val(data.artname);
                     $('#specification').val(data.specification);
                     $('#price').val(data.price);
+                    $('#stock').val(data.stock);
                 }
             });
         }
@@ -195,7 +200,7 @@ $result = mysqli_query($con, $sql);
             processData: false,
             success: function(data) {
                 alert(data);
-                
+
 
             }
         });

@@ -109,6 +109,11 @@ $result = mysqli_query($con, $sql);
                             <input type="text" class="form-control" data-error="Enter price" data-sc-type="text" name="price">
                         </div>
 
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="text" class="form-control" data-error="Enter price" data-sc-type="text" id="stock" name="stock">
+                        </div>
+
                         <button type="button" class="btn btn-primary" onclick="saverecord();">Submit</button>
                     </div>
                 </form>

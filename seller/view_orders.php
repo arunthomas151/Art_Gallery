@@ -4,12 +4,8 @@ require "session.php";
 $sql = "select * from menu order by orderid asc";
 $result = mysqli_query($con, $sql);
 
-$sqlorder = "select * from booking where seller='$cname' and status='booked'";
+$sqlorder = "select b.id,a.artname,b.total,b.name,b.status,b.mobile from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and s.id = '$login_id' and b.status='booked' or b.status = 'accepted'";
 $resultorder = mysqli_query($con, $sqlorder);
-
-
-
-
 
 ?>
 
@@ -28,7 +24,7 @@ $resultorder = mysqli_query($con, $sqlorder);
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.metisMenu.js"></script>
-  
+
   <script src="jui/jquery-ui.js"></script>
   <link href="jui/jquery-ui.css" rel="stylesheet" />
 
@@ -103,11 +99,6 @@ $resultorder = mysqli_query($con, $sqlorder);
 
         </ul>
 
-
-
-
-
-
       </div>
 
     </nav>
@@ -118,12 +109,11 @@ $resultorder = mysqli_query($con, $sqlorder);
 
         <table id="customers">
           <tr>
-            <th>Date</th>
-            <th>Customer</th>
-            <th>Type</th>
+            <th>Product</th>
+            <th>Buyer</th>
+            <th>Mobile</th>
             <th>Price</th>
             <th>Status</th>
-
 
           </tr>
           <?php
@@ -131,25 +121,28 @@ $resultorder = mysqli_query($con, $sqlorder);
           while ($row1 = mysqli_fetch_object($resultorder)) {
             ?>
             <tr>
-              <form method="post">
-                <td><?php echo $row1->date; ?></td>
-                <td><?php echo $row1->buyer_id ?></td>
-                <td><?php echo $row1->type ?></td>
-                <td><?php echo $row1->price ?></td>
 
-                <?php
+              <td><?php echo $row1->artname; ?></td>
+              <td><?php echo $row1->name ?></td>
+              <td><?php echo $row1->mobile ?></td>
+              <td><?php echo $row1->total ?></td>
 
-                  if ($row1->confirm == '1') {
-                    ?><td><span class="badge badge-danger">Accept Order</span></td>
-                <?php
-                  } else if ($row1->confirm == '2') {
-                    ?><td><span class="badge badge-danger">Ready to Deliver</span></td>
-                <?php
-                  }
+              <?php
+
+                if ($row1->status == 'booked') {
                   ?>
+                <td><button type="submit" onclick="accept('<?php echo $row1->id ?>');" class="btn btn-danger">Accept Order</button></td>
+              <?php
+                } else if ($row1->status == 'accepted') {
+                  ?>
+                <td><button type="submit" onclick="deliver('<?php echo $row1->id ?>');" class="btn btn-danger">Ready to Deliver</button></td>
+              <?php
+                }
+                else{
 
+                }
+                ?>
 
-              </form>
             <tr>
             <?php
             }
@@ -160,47 +153,8 @@ $resultorder = mysqli_query($con, $sqlorder);
 
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
     </div>
   </div>
-  </div>
-  <!-- End Form Elements -->
-  </div>
-  </div>
-
-
-  </div>
-  <!-- /. PAGE INNER  -->
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  </div><!-- /. PAGE INNER  -->
-  </div> <!-- /. PAGE WRAPPER  -->
-  </div><!-- /. WRAPPER  -->
-
-
-  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-  <!-- JQUERY SCRIPTS -->
 
   <div id="output_msg" title="Adoei Mailer">
 
@@ -209,24 +163,35 @@ $resultorder = mysqli_query($con, $sqlorder);
 </body>
 
 </html>
-<script>
-  function saverecord() {
 
-    if (inputvalidation('form1', 'error') && dropdownvalidation('select1', 'error')) {
-      $("#error").text('');
-      var form = $('#form1')[0];
-      var formData = new FormData(form);
-      $.ajax({
-        type: "POST",
-        url: "add_cars1.php",
-        data: formData,
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: function(data) {
-          $("#error").text(data);
-        }
-      });
-    }
+<script type="text/javascript">
+  function accept(id) {
+    $.ajax({
+      type: "POST",
+      url: "accept.php",
+      data: {
+        id: id
+      },
+      success: function(data) {
+
+        alert(data);
+
+      }
+    });
+  }
+
+  function deliver(id) {
+    $.ajax({
+      type: "POST",
+      url: "deliver.php",
+      data: {
+        id: id
+      },
+      success: function(data) {
+
+        alert(data);
+
+      }
+    });
   }
 </script>
