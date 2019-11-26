@@ -2,7 +2,7 @@
 
 require "session.php";
 require "dbconfig.php";
-$sql = "select * from notification where login_id='$login_id'";
+$sql = "select * from notification where login_id='$login_id' order by id desc ";
 $result = mysqli_query($con, $sql);
 
 

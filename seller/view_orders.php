@@ -4,8 +4,10 @@ require "session.php";
 $sql = "select * from menu order by orderid asc";
 $result = mysqli_query($con, $sql);
 
-$sqlorder = "select b.id,a.artname,b.total,b.name,b.status,b.mobile from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and s.id = '$login_id' and b.status='booked' or b.status = 'accepted'";
+$sqlorder = "select b.id,a.artname,b.total,b.name,b.status,b.mobile from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and s.id = '$login_id' and b.status='booked'";
 $resultorder = mysqli_query($con, $sqlorder);
+$sqlorder1 = "select b.id,a.artname,b.total,b.name,b.status,b.mobile from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and s.id = '$login_id' and b.status = 'accepted'";
+$resultorder1 = mysqli_query($con, $sqlorder1);
 
 ?>
 
@@ -121,28 +123,27 @@ $resultorder = mysqli_query($con, $sqlorder);
           while ($row1 = mysqli_fetch_object($resultorder)) {
             ?>
             <tr>
-
-              <td><?php echo $row1->artname; ?></td>
-              <td><?php echo $row1->name ?></td>
-              <td><?php echo $row1->mobile ?></td>
-              <td><?php echo $row1->total ?></td>
-
-              <?php
-
-                if ($row1->status == 'booked') {
-                  ?>
+              <form method="post">
+                <td><?php echo $row1->artname; ?></td>
+                <td><?php echo $row1->name ?></td>
+                <td><?php echo $row1->mobile ?></td>
+                <td><?php echo $row1->total ?></td>
                 <td><button type="submit" onclick="accept('<?php echo $row1->id ?>');" class="btn btn-danger">Accept Order</button></td>
-              <?php
-                } else if ($row1->status == 'accepted') {
-                  ?>
-                <td><button type="submit" onclick="deliver('<?php echo $row1->id ?>');" class="btn btn-danger">Ready to Deliver</button></td>
-              <?php
-                }
-                else{
+              </form>
+            <tr>
+            <?php
+            }
 
-                }
-                ?>
-
+            while ($row2 = mysqli_fetch_object($resultorder1)) {
+              ?>
+            <tr>
+              <form method="post">
+                <td><?php echo $row2->artname; ?></td>
+                <td><?php echo $row2->name ?></td>
+                <td><?php echo $row2->mobile ?></td>
+                <td><?php echo $row2->total ?></td>
+                <td><button type="submit" onclick="deliver('<?php echo $row2->id ?>');" class="btn btn-danger">Ready to Deliver</button></td>
+              </form>
             <tr>
             <?php
             }
