@@ -1,0 +1,30 @@
+.setwidth
+{
+	width:278px;
+	height:29px;
+	padding:3px;
+	
+
+}
+.setwidth:hover
+{
+	border:1px solid #0fff98;
+
+}
+.space
+{
+	margin-top:305px;
+}
+#rno_error,#name_error,#dob_error,#hname_error,#place_error,#number_error,#course_error,#fees_error,#seat_error
+{
+	color:red;
+
+}
+td{
+	padding:5px;
+}
+.close
+{
+
+	padding-left: 20px;
+}

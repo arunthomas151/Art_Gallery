@@ -35,6 +35,7 @@ $result = mysqli_query($con, $sql);
 			</div>
 			<div class="agile-login">
 				<ul>
+					<li><a href="login_admin.php">Admin Login</a></li>
 					<li><a href="login_buyer.php">Buyer Login</a></li>
 					<li><a href="login_seller.php">Seller Login</a></li>
 
@@ -44,7 +45,6 @@ $result = mysqli_query($con, $sql);
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-
 	<div class="logo_products">
 		<div class="container">
 			<div class="w3ls_logo_products_left">

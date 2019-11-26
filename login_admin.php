@@ -65,15 +65,15 @@ session_start();
 	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<h3>Login Buyer Account</h3>
+			<h3>Admin Login</h3>
 		</div>
 	</div>
 	<div class="container">
 		<form method="post">
 			<div class="form-group row col-md-7">
-				<label for="staticEmail" class="col-sm-4 col-form-label">Mobile No</label>
+				<label for="staticEmail" class="col-sm-4 col-form-label">Username</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="mobile" required>
+					<input type="text" class="form-control" name="username">
 				</div>
 			</div>
 			<div class="form-group row col-md-7">
@@ -168,15 +168,7 @@ session_start();
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
 
-
-
-
-		});
-	</script>
-	<!-- //here ends scrolling icon -->
 	<script src="js/minicart.min.js"></script>
 
 	<script src="js/skdslider.min.js"></script>
@@ -186,24 +178,21 @@ session_start();
 </body>
 
 </html>
-
 <?php
 if (isset($_POST['login'])) {
 	require "dbconfig.php";
-	$mobile = $_POST['mobile'];
+	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$sql = "select * from buyer where mobile='$mobile' and password='$password'";
+	$sql = "select * from login where username='$username' and password='$password'";
 	$result = mysqli_query($con, $sql);
 	$num = mysqli_num_rows($result);
 	if ($num == 1) {
 		$row = mysqli_fetch_object($result);
-		//echo "<script>alert('$row->name');</script>";
+
 		$_SESSION['login_id'] = $row->id;
-		echo '<script type="text/javascript">window.location="user_home.php"</script>';
+
+		echo '<script type="text/javascript">window.location="admin/home.php"</script>';
 	} else {
 		echo "<script>alert('Invalid login');</script>";
 	}
 }
-
-
-?>

@@ -1,13 +1,12 @@
-﻿<?php
+<?php
 require("dbconfig.php");
 require "session.php";
-$sql = "select * from menu order by orderid asc";
-$result = mysqli_query($con, $sql);
 
-$sqlorder = "select b.id,a.artname,b.total,b.name,b.status,b.mobile from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and s.id = '$login_id' and b.status='booked'";
+$sqlorder = "select b.id,a.artname,b.total,b.name as buyername,s.name as sellername from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and b.status='booked'";
 $resultorder = mysqli_query($con, $sqlorder);
-$sqlorder1 = "select b.id,a.artname,b.total,b.name,b.status,b.mobile from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and s.id = '$login_id' and b.status = 'accepted'";
-$resultorder1 = mysqli_query($con, $sqlorder1);
+
+
+
 
 
 ?>
@@ -20,6 +19,8 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Art Gallery </title>
 
+  <link href="assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/dataTables.bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
@@ -27,9 +28,10 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.metisMenu.js"></script>
-
+  <script src="assets/js/custom.js"></script>
   <script src="jui/jquery-ui.js"></script>
   <link href="jui/jquery-ui.css" rel="stylesheet" />
+  <script src="assets/css/jquery.dataTables.js"></script>
 
   <script src="sc/smartcode.validation.js"></script>
   <style>
@@ -77,7 +79,7 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">Seller</a>
+        <a class="navbar-brand">Admin</a>
       </div>
       <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
         Last access :
@@ -89,17 +91,11 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
     <nav class="navbar-default navbar-side" role="navigation">
       <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
-
-          <?php
-          while ($row = mysqli_fetch_object($result)) {
-            ?>
-            <li><a href="<?php echo $row->link; ?>"><?php echo $row->title; ?></a> </li>
-
-          <?php
-          }
-          ?>
-
-
+          <li><a href="home.php">Orders</a> </li>
+          <li><a href="view_buyers.php">view Buyers</a> </li>
+          <li><a href="view_seller.php">view Seller</a> </li>
+          <li><a href="change_password.php">change password</a></li>
+          <li><a href="add_locality.php">Add locality</a></li>
         </ul>
 
       </div>
@@ -108,15 +104,15 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
       <div>
-        <h2>View Orders</h2>
+        <h2>Orders</h2>
 
         <table id="customers">
           <tr>
-            <th>Product</th>
-            <th>Buyer</th>
-            <th>Mobile</th>
-            <th>Price</th>
-            <th>Status</th>
+            <th>Art Name</th>
+            <th>Seller Name</th>
+            <th>Buyer Name</th>
+            <th>Total</th>
+            <th>Action</th>
 
           </tr>
           <?php
@@ -125,25 +121,11 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
             ?>
             <tr>
               <form method="post">
+                <input type="hidden" name="order_id" value="<?php echo $row1->id; ?>">
                 <td><?php echo $row1->artname; ?></td>
-                <td><?php echo $row1->name ?></td>
-                <td><?php echo $row1->mobile ?></td>
-                <td><?php echo $row1->total ?></td>
-                <td><button type="submit" onclick="accept('<?php echo $row1->id ?>');" class="btn btn-danger">Accept Order</button></td>
-              </form>
-            <tr>
-            <?php
-            }
-
-            while ($row2 = mysqli_fetch_object($resultorder1)) {
-              ?>
-            <tr>
-              <form method="post">
-                <td><?php echo $row2->artname; ?></td>
-                <td><?php echo $row2->name ?></td>
-                <td><?php echo $row2->mobile ?></td>
-                <td><?php echo $row2->total ?></td>
-                <td><button type="submit" onclick="deliver('<?php echo $row2->id ?>');" class="btn btn-danger">Ready to Delivery</button></td>
+                <td><?php echo $row1->buyername; ?></td>
+                <td><?php echo $row1->sellername; ?></td>
+                <td><?php echo $row1->total; ?></td>
               </form>
             <tr>
             <?php
@@ -157,6 +139,24 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
 
     </div>
   </div>
+  </div>
+  <!-- End Form Elements -->
+  </div>
+  </div>
+
+
+  </div>
+  <!-- /. PAGE INNER  -->
+  </div>
+
+
+  </div><!-- /. PAGE INNER  -->
+  </div> <!-- /. PAGE WRAPPER  -->
+  </div><!-- /. WRAPPER  -->
+
+
+  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+  <!-- JQUERY SCRIPTS -->
 
   <div id="output_msg" title="Adoei Mailer">
 
@@ -167,33 +167,10 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
 </html>
 
 <script type="text/javascript">
-  function accept(id) {
-    $.ajax({
-      type: "POST",
-      url: "accept.php",
-      data: {
-        id: id
-      },
-      success: function(data) {
-
-        alert(data);
-
-      }
+  $(document).ready(function() {
+    $('#customers').DataTable({
+      "pageLength": 10,
+      "processing": true,
     });
-  }
-
-  function deliver(id) {
-    $.ajax({
-      type: "POST",
-      url: "deliver.php",
-      data: {
-        id: id
-      },
-      success: function(data) {
-
-        alert(data);
-
-      }
-    });
-  }
+  });
 </script>
