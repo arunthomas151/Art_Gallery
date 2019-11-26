@@ -213,6 +213,7 @@ if (isset($_POST['book'])) {
 		$msg = "Your booking is orderd.Expecte deliver on " . $newdate;
 		$sqlnoti = "insert into notification(date,book_id,login_id,msg)values('$date','$book_id','$login_id','$msg')";
 		mysqli_query($con, $sqlnoti);
+		echo "<script>window.location.href='artdetails.php';</script>";
 	} else {
 		echo "<script>alert('Try again');</script>";
 	}

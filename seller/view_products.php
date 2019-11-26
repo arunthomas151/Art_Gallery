@@ -1,5 +1,6 @@
 <?php
 require("dbconfig.php");
+require "session.php";
 $sql = "select * from menu order by orderid asc";
 $result = mysqli_query($con, $sql);
 
@@ -80,7 +81,7 @@ $result = mysqli_query($con, $sql);
                     <div class="col-md-12">
                         <h2 class="panel panel-primary text-center no-boder bg-color-red">View Arts</h2>
                         <?php
-                        $sqlart = "select * from art where status = 'Active' order by id asc";
+                        $sqlart = "select * from art where status = 'Active' and login_id = '$login_id' order by id asc";
                         $resultart = mysqli_query($con, $sqlart);
                         ?>
                         <div class="form-group">
