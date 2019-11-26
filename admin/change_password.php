@@ -20,18 +20,12 @@ $resultorder = mysqli_query($con, $sqlorder);
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Art Gallery </title>
 
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
-  <script src="assets/js/jquery-1.10.2.js"></script>
-  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <!-- <script src="assets/js/jquery-1.10.2.js"></script> -->
   <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.metisMenu.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <script src="jui/jquery-ui.js"></script>
-  <link href="jui/jquery-ui.css" rel="stylesheet" />
-
-  <script src="sc/smartcode.validation.js"></script>
   <style>
     #customers {
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -90,6 +84,7 @@ $resultorder = mysqli_query($con, $sqlorder);
       <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
           <li><a href="home.php">Orders</a> </li>
+          <li><a href="arts.php">view Art's</a> </li>
           <li><a href="view_buyers.php">view Buyers</a> </li>
           <li><a href="view_seller.php">view Seller</a> </li>
           <li><a href="change_password.php">change password</a></li>

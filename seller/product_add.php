@@ -31,7 +31,7 @@ if (isset($_FILES['image'])) {
         $result = mysqli_query($con, $sql);
         if ($result) {
             echo "Successfully Added";
-             '<script type="text/javascript">window.location="seller/view_products.php"</script>';
+             '<script type="text/javascript">window.location.href="seller/view_products.php"</script>';
         } else {
             echo "try agin";
         }

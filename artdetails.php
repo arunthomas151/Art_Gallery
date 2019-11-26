@@ -3,7 +3,6 @@ require "session.php";
 require "dbconfig.php";
 $sqluser = "select * from art where status='Active' and stock > 0";
 $result = mysqli_query($con, $sqluser);
-//$row = mysqli_fetch_object($result);
 
 
 ?>
