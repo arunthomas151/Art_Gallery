@@ -7,7 +7,7 @@ $sql="UPDATE booking set status='confirmed' where id='$id' and buyer_id='$login_
 if(mysqli_query($con,$sql))
 {
 	echo "Ready to Deliver";
-    $msg="Your Art is Ready to Deliver on ".$date;
+    $msg="Your Art is Ready to Delivery on ".$date;
     $sqlnoti = "UPDATE notification set msg='$msg' where book_id='$id'";
     mysqli_query($con,$sqlnoti);
 }

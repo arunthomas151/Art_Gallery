@@ -142,7 +142,7 @@ $resultorder1 = mysqli_query($con, $sqlorder1);
                 <td><?php echo $row2->name ?></td>
                 <td><?php echo $row2->mobile ?></td>
                 <td><?php echo $row2->total ?></td>
-                <td><button type="submit" onclick="deliver('<?php echo $row2->id ?>');" class="btn btn-danger">Ready to Deliver</button></td>
+                <td><button type="submit" onclick="deliver('<?php echo $row2->id ?>');" class="btn btn-danger">Ready to Delivery</button></td>
               </form>
             <tr>
             <?php
