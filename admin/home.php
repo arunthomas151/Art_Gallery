@@ -173,7 +173,9 @@ $resultorder = mysqli_query($con, $sqlorder);
 </html>
 
 <script type="text/javascript">
+
+$('#customers').DataTable();
   $(document).ready(function() {
-    $('#customers').DataTable();
+    
   });
 </script>
