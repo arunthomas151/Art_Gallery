@@ -144,6 +144,7 @@ $result = mysqli_query($con, $sql);
                 processData: false,
                 success: function(data) {
                     $("#error").text(data);
+                    document.querySelector('#form1').reset();
                 }
             });
         }

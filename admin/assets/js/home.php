@@ -18,9 +18,8 @@ $resultorder = mysqli_query($con, $sqlorder);
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Art Gallery </title>
-  <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+  <!-- <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
   <script src="assets/js/jquery-1.10.2.js"></script>
@@ -31,15 +30,10 @@ $resultorder = mysqli_query($con, $sqlorder);
   <link href="jui/jquery-ui.css" rel="stylesheet" />
 
 
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.css"> -->
-  <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/datatables.css"> -->
+  <link rel="stylesheet" type="text/css" href="dataTables/dataTables.bootstrap.css">
 
-  <!-- <script type="text/javascript" language="javascript" src="assets/js/jquery.min.js"></script> -->
-  <script type="text/javascript" language="javascript" src="assets/js/jquery.dataTables.min.js"></script>
-
-
+  <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.js"></script>
+  <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
 
 
   <script src="sc/smartcode.validation.js"></script>
@@ -116,20 +110,36 @@ $resultorder = mysqli_query($con, $sqlorder);
       <div>
         <h2>Orders</h2>
 
-        <table id="example" class="display" style="width:100%">
+        <table id="customers">
           <thead>
             <tr>
               <th>Art Name</th>
-              <th>Buyer Name</th>
               <th>Seller Name</th>
+              <th>Buyer Name</th>
               <th>Total</th>
+
             </tr>
           </thead>
           <tbody>
-           
+            <?php
+
+            while ($row1 = mysqli_fetch_object($resultorder)) {
+              ?>
+              <tr>
+                <form method="post">
+                  <input type="hidden" name="order_id" value="<?php echo $row1->id; ?>">
+                  <td><?php echo $row1->artname; ?></td>
+                  <td><?php echo $row1->buyername; ?></td>
+                  <td><?php echo $row1->sellername; ?></td>
+                  <td><?php echo $row1->total; ?></td>
+                </form>
+              <tr>
+              <?php
+              }
+
+              ?>
           </tbody>
         </table>
-
 
 
       </div>
@@ -165,31 +175,8 @@ $resultorder = mysqli_query($con, $sqlorder);
 
 <script type="text/javascript">
 
+$('#customers').DataTable();
   $(document).ready(function() {
-    $.ajax({
-      type: 'POST',
-      url: 'orders.php',
-      dataType: 'json',
-      cache: false,
-      success: function(result) {
-        $('#example').DataTable({
-          "searching": true,
-          "aaData": [result],
-          "aoColumns": [{
-              "sTitle": "artname"
-            },
-            {
-              "sTitle": "buyername"
-            },
-            {
-              "sTitle": "sellername"
-            },
-            {
-              "sTitle": "total"
-            }
-          ]
-        });
-      }
-    });
+    
   });
 </script>
