@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2019 at 04:02 AM
+-- Generation Time: Nov 27, 2019 at 02:51 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -39,13 +39,6 @@ CREATE TABLE `art` (
   `status` varchar(15) NOT NULL DEFAULT 'Deactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `art`
---
-
-INSERT INTO `art` (`id`, `login_id`, `artname`, `imagepath`, `specification`, `price`, `stock`, `status`) VALUES
-(1, 1, 'test', 'uploads/IMG_20180422_181055_HDR.jpg', 'test', 250, 4, 'Active');
-
 -- --------------------------------------------------------
 
 --
@@ -62,13 +55,6 @@ CREATE TABLE `booking` (
   `total` int(11) NOT NULL,
   `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`id`, `date`, `buyer_id`, `art_id`, `name`, `mobile`, `total`, `status`) VALUES
-(1, '2019/11/26', '1', 1, 'test', '9544103818', 300, 'booked');
 
 -- --------------------------------------------------------
 
@@ -88,13 +74,6 @@ CREATE TABLE `buyer` (
   `state` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `buyer`
---
-
-INSERT INTO `buyer` (`id`, `name`, `address`, `mobile`, `dob`, `email`, `location`, `dis`, `state`, `password`) VALUES
-(1, 'test', 'test', '9544103818', '1995-12-01', 'test@gmail.com', 'Thoprankudy', 'Idukki', 'Kerala', '9544103818');
 
 -- --------------------------------------------------------
 
@@ -127,7 +106,7 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`id`, `state`, `dis`, `loc`) VALUES
-(1, 'Kerala', 'Idukki', 'Thoprankudy');
+(1, 'Kerala', 'Kottayam', 'Kanjirapally');
 
 -- --------------------------------------------------------
 
@@ -187,13 +166,6 @@ CREATE TABLE `notification` (
   `msg` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`id`, `login_id`, `book_id`, `date`, `msg`) VALUES
-(1, '1', 1, '2019/11/26', 'Your booking is orderd.Expecte deliver on 2019-12-06');
-
 -- --------------------------------------------------------
 
 --
@@ -212,13 +184,6 @@ CREATE TABLE `seller` (
   `state` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `seller`
---
-
-INSERT INTO `seller` (`id`, `cname`, `name`, `address`, `mobile`, `email`, `locality`, `dis`, `state`, `password`) VALUES
-(1, 'Test', 'Test', 'Test', 9544103818, 'Test@gmail.com', 'Thoprankudy', 'Idukki', 'Kerala', '9544103818');
 
 --
 -- Indexes for dumped tables
@@ -286,19 +251,19 @@ ALTER TABLE `seller`
 -- AUTO_INCREMENT for table `art`
 --
 ALTER TABLE `art`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `confirm`
@@ -328,13 +293,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
