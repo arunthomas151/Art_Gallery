@@ -1,14 +1,6 @@
 <?php
 require("dbconfig.php");
 require "session.php";
-
-$sqlorder = "select b.id,a.artname,b.total,b.name as buyername,s.name as sellername from booking b inner join art a inner join seller s where s.id = a.login_id and a.id = b.art_id and b.status='booked'";
-$resultorder = mysqli_query($con, $sqlorder);
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
