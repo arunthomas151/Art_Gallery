@@ -17,18 +17,12 @@ require "session.php";
   <link href="assets/css/custom.css" rel="stylesheet" />
   <script src="assets/js/jquery-1.10.2.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-
-
   <script src="jui/jquery-ui.js"></script>
   <link href="jui/jquery-ui.css" rel="stylesheet" />
 
-
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.css"> -->
   <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/datatables.css"> -->
 
-  <!-- <script type="text/javascript" language="javascript" src="assets/js/jquery.min.js"></script> -->
   <script type="text/javascript" language="javascript" src="assets/js/jquery.dataTables.min.js"></script>
 
 
