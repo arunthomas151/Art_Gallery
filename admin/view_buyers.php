@@ -2,12 +2,8 @@
 require("dbconfig.php");
 require "session.php";
 
-$sql = "select * from buyer";
+$sql = "select * from buyer where status = 'Active'";
 $result = mysqli_query($con, $sql);
-
-
-
-
 
 
 ?>
@@ -106,7 +102,7 @@ $result = mysqli_query($con, $sql);
             <th>mobile</th>
             <th>Locality</th>
             <th>District</th>
-            <th>State</th>
+            <th>Action</th>
           </tr>
           <?php
 
@@ -114,12 +110,13 @@ $result = mysqli_query($con, $sql);
             ?>
             <tr>
               <form method="post">
+                <input type="hidden" name="buyer_id" value="<?php echo $row[0] ?>" id="buyer_id">
                 <td><?php echo $row[1]; ?></td>
                 <td><?php echo $row[2]; ?></td>
                 <td><?php echo $row[3]; ?></td>
                 <td><?php echo $row[6]; ?></td>
                 <td><?php echo $row[7]; ?></td>
-                <td><?php echo $row[8]; ?></td>
+                <td><button type="submit" name="deactive" class="btn btn-danger">Deactive</button></td>
               </form>
             <tr>
             <?php
@@ -159,4 +156,19 @@ $result = mysqli_query($con, $sql);
 </body>
 
 </html>
+<?php
+
+if (isset($_POST['deactive'])) {
+  require "dbconfig.php";
+  $buyer_id = $_POST['buyer_id'];
+  $sql = "UPDATE buyer set status='Deactive' where id='$buyer_id'";
+  if (mysqli_query($con, $sql)) {
+    echo "<script>alert('Successfully Deativated ');</script>";
+    echo '<script type="text/javascript">window.location="view_buyers.php"</script>';
+  } else {
+    echo "Try again";
+    echo mysqli_error($con);
+  }
 }
+
+?>

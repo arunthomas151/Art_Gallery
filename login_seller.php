@@ -118,7 +118,7 @@ if (isset($_POST['login'])) {
 	require "dbconfig.php";
 	$mobile = $_POST['mobile'];
 	$password = $_POST['password'];
-	$sql = "select * from seller where mobile='$mobile' and password='$password'";
+	$sql = "select * from seller where mobile='$mobile' and password='$password' and status='Active'";
 	$result = mysqli_query($con, $sql);
 	$num = mysqli_num_rows($result);
 	if ($num == 1) {

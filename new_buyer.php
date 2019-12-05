@@ -141,13 +141,13 @@ $result = mysqli_query($con, $sql);
 			<div class="form-group row col-md-7">
 				<label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" id="password" name="password">
+					<input type="password" class="form-control" id="password" name="password">
 				</div>
 			</div>
 			<div class="form-group row col-md-7">
 				<label for="inputPassword" class="col-sm-4 col-form-label">Confirm Password</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" id="cpassword" name="cpassword">
+					<input type="password" class="form-control" id="cpassword" name="cpassword">
 				</div>
 			</div>
 
