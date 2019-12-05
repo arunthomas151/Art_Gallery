@@ -5,7 +5,6 @@ require("dbconfig.php");
 $sql = "select * from art where id='$id'";
 $result = mysqli_query($con, $sql);
 
-
 $sqluser = "select * from buyer where id='$login_id'";
 $userdetails = mysqli_query($con, $sqluser);
 $row1 = mysqli_fetch_object($userdetails);
@@ -18,61 +17,42 @@ $row1 = mysqli_fetch_object($userdetails);
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- font-awesome icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<!-- //js -->
-
 
 </head>
 
 <body>
-	<!-- header -->
 	<div class="agileits_header">
 		<div class="container">
 			<div class="w3l_offers">
-
 			</div>
 			<div class="agile-login">
 				<ul>
-
-
 				</ul>
 			</div>
-
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-
 	<div class="logo_products">
 		<div class="container">
 			<div class="w3ls_logo_products_left">
 				<h1><a href="index.html">Art Gallery</a></h1>
 			</div>
-
-
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- //header -->
-	<!-- navigation -->
 	<div class="navigation-agileits">
 		<div class="container">
 			<?php require "user_menu.php"; ?>
 		</div>
 	</div>
 
-	<!-- //navigation -->
-	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-
 		</div>
 	</div>
 	<div class="content">
@@ -86,8 +66,6 @@ $row1 = mysqli_fetch_object($userdetails);
 						<img src="seller/<?php echo $row->imagepath; ?>" alt="" width="250px">
 
 					</div>
-
-
 				</div>
 				<div class="col-md-3">
 					<h2 class="text"><?php echo $row->artname; ?></h2>
@@ -101,13 +79,9 @@ $row1 = mysqli_fetch_object($userdetails);
 					<h4 class="price"><b>Total :</b><?php echo $row->price + $subcharge; ?></h4>
 					<?php $total = $row->price + $subcharge; ?>
 				</div>
-
-
 			<?php
 			}
 			?>
-
-
 		</div>
 		<div class="breadcrumbs">
 			<div class="container">
@@ -116,16 +90,11 @@ $row1 = mysqli_fetch_object($userdetails);
 		</div>
 		<div class="row">
 			<div class="col-md-8" id="adjust">
-
-
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Order Your Art</h3>
 					</div>
-
 					<div class="panel-body">
-
-
 						<form method="post">
 							<div class="form-group row col-md-8">
 								<label for="staticEmail" class="col-sm-4 col-form-label">Name</label>
@@ -133,14 +102,12 @@ $row1 = mysqli_fetch_object($userdetails);
 									<input type="text" class="form-control" id="name" name="name" value="<?php echo $row1->name; ?>">
 								</div>
 							</div>
-
 							<div class="form-group row col-md-8">
 								<label for="inputPassword" class="col-sm-4 col-form-label">Address</label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" id="address" name="address" value="<?php echo $row1->address; ?>">
 								</div>
 							</div>
-
 							<div class="form-group row col-md-8">
 								<label for="inputPassword" class="col-sm-4 col-form-label">Mobile</label>
 								<div class="col-sm-8">
@@ -163,43 +130,16 @@ $row1 = mysqli_fetch_object($userdetails);
 							</div>
 
 						</form>
-
-
 					</div>
-					<!--panel body--->
 				</div>
 			</div>
-
 		</div>
-
 	</div>
 
-	<!-- //register -->
-
-
 	<?php require "footer.php"; ?>
-
-
-	<!-- //footer -->
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-
-		});
-	</script>
-	<!-- //here ends scrolling icon -->
-	<script src="js/minicart.min.js"></script>
-
-	<script src="js/skdslider.min.js"></script>
-	<link href="css/skdslider.css" rel="stylesheet">
-
-
 </body>
 
 </html>
-
 <?php
 if (isset($_POST['book'])) {
 	$name = $_POST['name'];

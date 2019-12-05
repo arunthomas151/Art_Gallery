@@ -4,10 +4,6 @@ require "session.php";
 $sqluser = "select a.id,a.artname,a.price,s.name from art a inner join seller s where s.id = a.login_id and a.status='Deactive'";
 $result = mysqli_query($con, $sqluser);
 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +16,7 @@ $result = mysqli_query($con, $sqluser);
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/custom.css" rel="stylesheet" />
-    <script src="assets/js/jquery-1.10.2.js"></script>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.metisMenu.js"></script>
-    <script src="jui/jquery-ui.js"></script>
-    <link href="jui/jquery-ui.css" rel="stylesheet" />
 
     <script src="sc/smartcode.validation.js"></script>
     <style>
@@ -58,9 +49,6 @@ $result = mysqli_query($con, $sqluser);
             color: white;
         }
     </style>
-
-
-
 </head>
 
 <body>
@@ -81,7 +69,6 @@ $result = mysqli_query($con, $sqluser);
 
             </div>
         </nav>
-        <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
@@ -92,15 +79,11 @@ $result = mysqli_query($con, $sqluser);
                     <li><a href="change_password.php">change password</a></li>
                     <li><a href="add_locality.php">Add locality</a></li>
                 </ul>
-
             </div>
-
         </nav>
-        <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div>
                 <h2>Art's</h2>
-
                 <table id="customers">
                     <thead>
                         <tr>
@@ -130,39 +113,22 @@ $result = mysqli_query($con, $sqluser);
                             ?>
                     </tbody>
                 </table>
-
-
             </div>
-
         </div>
     </div>
     </div>
-    <!-- End Form Elements -->
     </div>
     </div>
-
-
     </div>
-    <!-- /. PAGE INNER  -->
     </div>
-
-
-    </div><!-- /. PAGE INNER  -->
-    </div> <!-- /. PAGE WRAPPER  -->
-    </div><!-- /. WRAPPER  -->
-
-
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-
+    </div>
+    </div>
+    </div>
     <div id="output_msg" title="Adoei Mailer">
-
     </div>
-
 </body>
 
 </html>
-
 <script type="text/javascript">
     function approve(id) {
 

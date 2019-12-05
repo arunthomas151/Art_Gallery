@@ -10,15 +10,12 @@ require "session.php";
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Art Gallery </title>
-  <script src="assets/js/jquery.min.js" type="text/javascript"></script>
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
-  <script src="assets/js/jquery-1.10.2.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="jui/jquery-ui.js"></script>
-  <link href="jui/jquery-ui.css" rel="stylesheet" />
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+
+  <script src="sc/smartcode.validation.js"></script>
 
   <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css">
@@ -112,7 +109,7 @@ require "session.php";
             </tr>
           </thead>
           <tbody>
-           
+
           </tbody>
         </table>
 
@@ -150,7 +147,6 @@ require "session.php";
 </html>
 
 <script type="text/javascript">
-
   $(document).ready(function() {
     $.ajax({
       type: 'POST',

@@ -18,7 +18,6 @@ $result = mysqli_query($con, $sql);
     <title>Art Gallery</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/custom.css" rel="stylesheet" />
     <script src="assets/js/jquery-1.10.2.js"></script>
     <script src="assets/js/jquery-3.2.1.min.js"></script>

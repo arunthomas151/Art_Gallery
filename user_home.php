@@ -13,15 +13,7 @@ require "session.php";
 
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- font-awesome icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<!-- //js -->
-
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
 
 </head>
 
@@ -85,14 +77,6 @@ require "session.php";
 
 	<?php require "footer.php"; ?>
 
-	<!-- //footer -->
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- top-header and slider -->
-	<!-- here stars scrolling icon -->
-
-	<!-- //here ends scrolling icon -->
 	<script src="js/minicart.min.js"></script>
 	<script>
 		// Mini Cart

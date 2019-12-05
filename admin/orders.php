@@ -22,3 +22,4 @@ while( $row = mysqli_fetch_array($res) ) {
 }
 
 echo json_encode($dataArray);
+?>

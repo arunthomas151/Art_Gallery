@@ -4,10 +4,6 @@ require("dbconfig.php");
 $sql = "select * from menu order by orderid asc";
 $result = mysqli_query($con, $sql);
 
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +17,9 @@ $result = mysqli_query($con, $sql);
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
-  <script src="assets/js/jquery-1.10.2.js"></script>
   <script src="assets/js/jquery-3.2.1.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.metisMenu.js"></script>
-  <script src="jui/jquery-ui.js"></script>
-  <link href="jui/jquery-ui.css" rel="stylesheet" />
 
   <script src="sc/smartcode.validation.js"></script>
-
-
 </head>
 
 <body>
@@ -48,10 +37,8 @@ $result = mysqli_query($con, $sql);
       <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
         Last access :
         <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
-
       </div>
     </nav>
-    <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
       <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -62,44 +49,28 @@ $result = mysqli_query($con, $sql);
           <li><a href="change_password.php">change password</a></li>
           <li><a href="add_locality.php">Add locality</a></li>
         </ul>
-
       </div>
-
     </nav>
-    <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
       <div>
-
         <div class="row">
           <div class="col-md-12">
             <h2 class="panel panel-primary text-center no-boder bg-color-red">Add Locality</h2>
-
-
           </div>
         </div>
-        <!--new row end-->
-
-
-
-
         <form id="form1" enctype="multipart/form-data">
           <div>
             <div id="page-inner">
-
               <hr />
               <div class="row">
                 <div class="col-md-12">
-                  <!-- Form Elements -->
                   <div class="panel panel-default">
-
                     <div class="panel-body">
                       <div class="row">
                         <div class="form-group">
                           <label id="error"></label>
-
                         </div>
                         <div class="col-md-6">
-
                           <div class="form-group">
                             <select class="form-control" name="state" id="state" data-error="selet State">
                               <option>Select State</option>
@@ -132,103 +103,37 @@ $result = mysqli_query($con, $sql);
                               <option>Uttaranchal</option>
                               <option>Uttar Pradesh</option>
                               <option>West Bengal</option>
-
-
-
-
                               <select>
                           </div>
-
-
-
-
                           <div class="form-group">
                             <label>District Name</label>
                             <input type="text" class="form-control" data-error="Enter District" data-sc-type="text" name="dis">
                           </div>
-
-
-
                           <div class="form-group">
                             <label>location</label>
                             <input type="text" class="form-control" data-error="Enter Locality" data-sc-type="text" name="loc">
                           </div>
-
-
         </form>
-
         <button type="button" class="btn btn-primary" onclick="saverecord();">Submit</button>
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
   </div>
   </div>
-  <!-- End Form Elements -->
   </div>
   </div>
-
-
   </div>
-  <!-- /. PAGE INNER  -->
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  </div><!-- /. PAGE INNER  -->
-  </div> <!-- /. PAGE WRAPPER  -->
-  </div><!-- /. WRAPPER  -->
-
-
-  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-  <!-- JQUERY SCRIPTS -->
-
+  </div>
+  </div>
+  </div>
   <div id="output_msg" title="Adoei Mailer">
-
   </div>
-
 </body>
 
 </html>
 <script>
   function saverecord() {
-
     if (dropdownvalidation('state', 'error') && inputvalidation('form1', 'error')) {
       $("#error").text('');
       var form = $('#form1')[0];

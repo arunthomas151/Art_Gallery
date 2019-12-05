@@ -16,10 +16,7 @@ require "dbconfig.php";
 
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- font-awesome icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
+
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<!-- //js -->
 
@@ -95,17 +92,6 @@ require "dbconfig.php";
 
 
 	<?php require "footer.php"; ?>
-
-
-	<!-- //footer -->
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-
-	<script src="js/minicart.min.js"></script>
-
-	<script src="js/skdslider.min.js"></script>
-	<link href="css/skdslider.css" rel="stylesheet">
 
 
 </body>

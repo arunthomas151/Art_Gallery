@@ -102,7 +102,8 @@ function dropdownvalidation(dropdownid,displayid)
     var display=$('#'+displayid);
     if(dropindex==0)
     {
-      display.text(errormsg);exit();
+      display.text(errormsg);
+      exit();
     }
   return true;
 }

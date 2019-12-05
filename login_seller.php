@@ -11,21 +11,14 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- font-awesome icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<!-- //js -->
 
 
 </head>
 
 <body>
-	<!-- header -->
 	<div class="agileits_header">
 		<div class="container">
 			<div class="w3l_offers">
@@ -53,16 +46,11 @@ session_start();
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- //header -->
-	<!-- navigation -->
 	<div class="navigation-agileits">
 		<div class="container">
 			<?php require "common_menu.php"; ?>
 		</div>
 	</div>
-
-	<!-- //navigation -->
-	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
 			<h3>Login Seller Account</h3>
@@ -92,23 +80,6 @@ session_start();
 		</form>
 
 	</div>
-	<!-- //register -->
-	<!-- //footer -->
-
-
-
-
-
-	<!-- //footer -->
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-
-	<script src="js/minicart.min.js"></script>
-
-	<script src="js/skdslider.min.js"></script>
-	<link href="css/skdslider.css" rel="stylesheet">
-
 
 </body>
 
@@ -131,3 +102,4 @@ if (isset($_POST['login'])) {
 		echo "<script>alert('Invalid login');</script>";
 	}
 }
+?>

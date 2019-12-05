@@ -5,11 +5,6 @@ require "session.php";
 $sql = "select * from seller where status = 'Active'";
 $result = mysqli_query($con, $sql);
 
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +14,10 @@ $result = mysqli_query($con, $sql);
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Art Gallery </title>
-
-  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
-  <!-- <script src="assets/js/jquery-1.10.2.js"></script> -->
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
   <style>
     #customers {
       font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -56,9 +48,6 @@ $result = mysqli_query($con, $sql);
       color: white;
     }
   </style>
-
-
-
 </head>
 
 <body>
@@ -76,10 +65,8 @@ $result = mysqli_query($con, $sql);
       <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
         Last access :
         <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
-
       </div>
     </nav>
-    <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
       <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -90,15 +77,11 @@ $result = mysqli_query($con, $sql);
           <li><a href="change_password.php">change password</a></li>
           <li><a href="add_locality.php">Add locality</a></li>
         </ul>
-
       </div>
-
     </nav>
-    <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
       <div>
         <h2>View Sellers</h2>
-
         <table id="customers">
           <tr>
             <th>company</th>
@@ -125,53 +108,28 @@ $result = mysqli_query($con, $sql);
             <tr>
             <?php
             }
-
             ?>
         </table>
-
-
       </div>
-
     </div>
   </div>
-  </div>
-  <!-- End Form Elements -->
-  </div>
-  </div>
-
-
-  </div>
-  <!-- /. PAGE INNER  -->
-  </div>
-
-
-  </div><!-- /. PAGE INNER  -->
-  </div> <!-- /. PAGE WRAPPER  -->
-  </div><!-- /. WRAPPER  -->
-
-
-  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-  <!-- JQUERY SCRIPTS -->
-
   <div id="output_msg" title="Adoei Mailer">
-
   </div>
-
 </body>
 
-</html <?php
+</html>
+<?php
+if (isset($_POST['deactive'])) {
+  require "dbconfig.php";
+  $seller_id = $_POST['seller_id'];
+  $sql = "UPDATE seller set status='Deactive' where id='$seller_id'";
+  if (mysqli_query($con, $sql)) {
+    echo "<script>alert('Successfully Deativated ');</script>";
+    echo '<script type="text/javascript">window.location="view_seller.php"</script>';
+  } else {
+    echo "Try again";
+    echo mysqli_error($con);
+  }
+}
 
-        if (isset($_POST['deactive'])) {
-          require "dbconfig.php";
-          $seller_id = $_POST['seller_id'];
-          $sql = "UPDATE seller set status='Deactive' where id='$seller_id'";
-          if (mysqli_query($con, $sql)) {
-            echo "<script>alert('Successfully Deativated ');</script>";
-            echo '<script type="text/javascript">window.location="view_seller.php"</script>';
-          } else {
-            echo "Try again";
-            echo mysqli_error($con);
-          }
-        }
-
-        ?>
+?>

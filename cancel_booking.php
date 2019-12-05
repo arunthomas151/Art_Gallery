@@ -19,12 +19,7 @@ $result = mysqli_query($con, $sql);
 
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- font-awesome icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome icons -->
-	<!-- js -->
 	<script src="js/jquery-1.11.1.min.js"></script>
-	<!-- //js -->
 	<style>
 		#customers {
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -131,28 +126,6 @@ $result = mysqli_query($con, $sql);
 		</table>
 
 	</div>
-	<!-- //register -->
-
-
-
-
-	<!-- //footer -->
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-
-
-
-
-		});
-	</script>
-	<!-- //here ends scrolling icon -->
-	<script src="js/minicart.min.js"></script>
-
-	<script src="js/skdslider.min.js"></script>
-	<link href="css/skdslider.css" rel="stylesheet">
 
 
 </body>

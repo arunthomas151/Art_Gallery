@@ -16,19 +16,8 @@
 			<li><a href="artdetails.php">Art Booking</a></li>
 			<li><a href="cancel_booking.php">Cancel Booking</a></li>
 			<li><a href="notification.php">Notification</a></li>
-			
-			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
-				<ul class="dropdown-menu multi-column columns-3">
-					<div class="row">
-						<div class="multi-gd-img">
-							<ul class="multi-column-dropdown">
-								<li><a href="logout.php">Logout</a></li>
-								<li><a href="change_password.php">Change Password</a></li>
-							</ul>
-						</div>
-					</div>
-				</ul>
-			</li>
+			<li><a href="change_password.php">Change Password</a></li>
+			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</div>
 </nav>

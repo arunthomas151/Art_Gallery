@@ -2,13 +2,8 @@
 require("dbconfig.php");
 require "session.php";
 
-
 $sqlorder = "select qty,distributor,confirm,id,type,SUM(qty) as 'totalcustomer' from booking where status='booked' and confirm!='0' group by type";
 $resultorder = mysqli_query($con, $sqlorder);
-
-
-
-
 
 ?>
 
@@ -22,13 +17,7 @@ $resultorder = mysqli_query($con, $sqlorder);
   <link href="assets/css/bootstrap.css" rel="stylesheet" />
   <link href="assets/css/font-awesome.css" rel="stylesheet" />
   <link href="assets/css/custom.css" rel="stylesheet" />
-  <script src="assets/js/jquery-1.10.2.js"></script>
   <script src="assets/js/jquery-3.2.1.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.metisMenu.js"></script>
-  <script src="jui/jquery-ui.js"></script>
-  <link href="jui/jquery-ui.css" rel="stylesheet" />
-
   <script src="sc/smartcode.validation.js"></script>
   <style>
     #customers {
@@ -60,9 +49,6 @@ $resultorder = mysqli_query($con, $sqlorder);
       color: white;
     }
   </style>
-
-
-
 </head>
 
 <body>
@@ -80,10 +66,8 @@ $resultorder = mysqli_query($con, $sqlorder);
       <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
         Last access :
         <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
-
       </div>
     </nav>
-    <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
       <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -94,14 +78,10 @@ $resultorder = mysqli_query($con, $sqlorder);
           <li><a href="change_password.php">change password</a></li>
           <li><a href="add_locality.php">Add locality</a></li>
         </ul>
-
       </div>
-
     </nav>
-    <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
       <form id="booking" method="post">
-
         <div class="form-group row col-md-12">
           <label for="staticEmail" class="col-sm-2 col-form-label">Old password</label>
           <div class="col-sm-8">
@@ -115,9 +95,6 @@ $resultorder = mysqli_query($con, $sqlorder);
             <input type="text" class="form-control" name="new" required>
           </div>
         </div>
-
-
-
         <div class="form-group row col-md-12">
           <label for="inputPassword" class="col-sm-2 col-form-label"></label>
           <div class="col-sm-8">
@@ -125,32 +102,18 @@ $resultorder = mysqli_query($con, $sqlorder);
           </div>
         </div>
       </form>
-
     </div>
   </div>
   </div>
-  <!-- End Form Elements -->
   </div>
   </div>
-
-
   </div>
-  <!-- /. PAGE INNER  -->
   </div>
-
-
-  </div><!-- /. PAGE INNER  -->
-  </div> <!-- /. PAGE WRAPPER  -->
-  </div><!-- /. WRAPPER  -->
-
-
-  <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-  <!-- JQUERY SCRIPTS -->
-
+  </div>
+  </div>
+  </div>
   <div id="output_msg" title="Adoei Mailer">
-
   </div>
-
 </body>
 
 </html>
@@ -163,3 +126,4 @@ if (isset($_POST['change'])) {
     echo "<script>alert('updated')</script>";
   }
 }
+?>

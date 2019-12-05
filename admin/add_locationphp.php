@@ -24,3 +24,5 @@ require("dbconfig.php");
  {
  	echo "Already inserted";
  }
+ 
+ ?>
